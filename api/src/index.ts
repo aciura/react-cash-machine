@@ -13,6 +13,10 @@ app.get('/', (req: Request, res: Response) => {
   })
 })
 
-app.listen(PORT, () => {
-  console.log('server started at http://localhost:' + PORT)
-})
+if (require.main === module) {
+  // true if file is executed
+  app.listen(PORT, () => {
+    console.log('server started at http://localhost:' + PORT)
+  })
+}
+export default app

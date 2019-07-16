@@ -86,6 +86,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/webpack/buildin/module.js":
+/*!***********************************!*\
+  !*** (webpack)/buildin/module.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = function(module) {\n\tif (!module.webpackPolyfill) {\n\t\tmodule.deprecate = function() {};\n\t\tmodule.paths = [];\n\t\t// module.parent = undefined by default\n\t\tif (!module.children) module.children = [];\n\t\tObject.defineProperty(module, \"loaded\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.l;\n\t\t\t}\n\t\t});\n\t\tObject.defineProperty(module, \"id\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.i;\n\t\t\t}\n\t\t});\n\t\tmodule.webpackPolyfill = 1;\n\t}\n\treturn module;\n};\n\n\n//# sourceURL=webpack:///(webpack)/buildin/module.js?");
+
+/***/ }),
+
 /***/ "./src/index.ts":
 /*!**********************!*\
   !*** ./src/index.ts ***!
@@ -94,7 +105,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nexports.__esModule = true;\r\nvar express = __webpack_require__(/*! express */ \"express\");\r\n// const cors = require('cors')\r\n// const bodyParser = require('body-parser')\r\nvar app = express();\r\nvar _a = process.env.PORT, PORT = _a === void 0 ? 3000 : _a;\r\n// app.use(cors(), bodyParser.json())\r\napp.get('/', function (req, res) {\r\n    res.send({\r\n        message: 'hello world',\r\n    });\r\n});\r\napp.listen(PORT, function () {\r\n    console.log('server started at http://localhost:' + PORT);\r\n});\r\n\n\n//# sourceURL=webpack:///./src/index.ts?");
+eval("/* WEBPACK VAR INJECTION */(function(module) {\r\nexports.__esModule = true;\r\nvar express = __webpack_require__(/*! express */ \"express\");\r\n// const cors = require('cors')\r\n// const bodyParser = require('body-parser')\r\nvar app = express();\r\nvar _a = process.env.PORT, PORT = _a === void 0 ? 3000 : _a;\r\n// app.use(cors(), bodyParser.json())\r\napp.get('/', function (req, res) {\r\n    res.send({\r\n        message: 'hello world',\r\n    });\r\n});\r\nif (__webpack_require__.c[__webpack_require__.s] === module) {\r\n    // true if file is executed\r\n    app.listen(PORT, function () {\r\n        console.log('server started at http://localhost:' + PORT);\r\n    });\r\n}\r\nexports[\"default\"] = app;\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/module.js */ \"./node_modules/webpack/buildin/module.js\")(module)))\n\n//# sourceURL=webpack:///./src/index.ts?");
 
 /***/ }),
 
