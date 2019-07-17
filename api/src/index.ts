@@ -1,5 +1,6 @@
 import * as express from 'express'
 import { Request, Response } from 'express'
+import { calculateNotes } from './cashService'
 // const cors = require('cors')
 // const bodyParser = require('body-parser')
 
@@ -8,51 +9,25 @@ const { PORT = 3000 } = process.env
 // app.use(cors(), bodyParser.json())
 
 app.get('/', (req: Request, res: Response) => {
-  // console.log('Request', req)
   res.send({
     message: 'hello from cash-machine',
   })
 })
 
-const availableNotes = [100, 50, 20, 10]
-
-class NoteUnavailableException extends Error {
-  constructor(message?: string) {
-    super(message)
-
-    Object.setPrototypeOf(this, new.target.prototype) // restore prototype chain
-    this.name = NoteUnavailableException.name // stack traces display correctly now
-  }
-}
-
 app.get('/withdraw/:cashAmount', (req, resp) => {
   console.log('Request /withdraw/:cashAmount', req.params.cashAmount)
-
-  const cashAmount = req.params.cashAmount
-
-  const notesArray = {}
-
-  const [notes, rest] = availableNotes.reduce(
-    ([notesResult, cashLeft], note) => {
-      const notesUsed: number = Math.floor(cashLeft / note)
-      const newCashLeft = cashLeft - notesUsed * note
-      return [{ ...notesResult, [note]: notesUsed }, newCashLeft]
-    },
-    [notesArray, cashAmount]
-  )
-
-  if (rest > 0) {
-    // throw new NoteUnavailableException(
-    //   `Cannot withdraw ${cashAmount}, rest ${rest}`
-    // )
-    resp.status(400).send({ error: 'NoteUnavailableException' })
-  } else {
+  try {
+    const cashAmount = req.params.cashAmount
+    const notes = calculateNotes(cashAmount)
     resp.send(notes)
+  } catch (error) {
+    console.error(error)
+    resp.status(400).send({ error })
   }
 })
 
 if (require.main === module) {
-  // true if file is executed
+  // True if file is executed. (Required for unit testing)
   app.listen(PORT, () => {
     console.log('server started at http://localhost:' + PORT)
   })
