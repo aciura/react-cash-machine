@@ -15,22 +15,22 @@ const App: React.FunctionComponent = () => {
 
   async function withdrawCash(cashAmount: number) {
     console.log('withdrawCash', cashAmount)
+    setNotes([])
 
     try {
       const result = await ApiService.withdrawCash(cashAmount)
 
       console.log('withdrawCash result', result)
       if ('data' in result) {
-        parseNotes(result.data)
+        setNotes(parseNotes(result.data))
+        setError(null)
       } else {
         console.error('withdrawCash error', result.error)
-        setNotes([])
         setError(result.error)
       }
     } catch (e) {
       console.error('withdrawCash error', e)
       setError(e)
-      setNotes([])
     }
   }
 
@@ -43,8 +43,7 @@ const App: React.FunctionComponent = () => {
       }))
       .sort(sortNotes)
     console.log('notes:', notesResult)
-    setNotes(notesResult)
-    setError(null)
+    return notesResult
   }
 
   return (
