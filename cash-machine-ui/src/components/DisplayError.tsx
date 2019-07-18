@@ -1,13 +1,12 @@
 import React from 'react'
-import { ApiError } from './ApiError'
+import { ApiError } from '../../../common/ApiResults'
 
-export const DisplayError: React.FC<ApiError> = error => {
-    return (
-      <div>
-        <span>Error: {error.name}</span>
-        <br />
-        <span>{error.message}</span>
-      </div>
-    )
-  }
+export const DisplayError: React.FC<ApiError> = (error: ApiError) => {
+  return (
+    <div style={{ color: 'red' }}>
+      <span>Error: {error.name}</span>
+      <br />
+      <span>{error.message}</span>
+    </div>
+  )
 }
