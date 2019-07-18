@@ -35,7 +35,6 @@ const UserInput: FunctionComponent<UserInputProps> = ({ withdrawCash }) => {
         name="cashAmount"
         style={{ margin: '5px' }}
         value={cashAmount}
-        placeholder={'0'}
         onChange={handleCashAmountChange}
         onKeyUp={e => {
           if (e.keyCode === ENTER_KEY_CODE) withdrawCash(cashAmount)

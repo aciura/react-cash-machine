@@ -1,0 +1,10 @@
+img.cash-note {
+  max-width: 150px;
+  position: relative;
+  transition: left 0.8s;
+  left: -4000px;
+}
+
+img.cash-note.final {
+  left: 0;
+}
