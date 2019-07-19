@@ -2,7 +2,7 @@ import { InvalidArgumentException, NoteUnavailableException } from './errors'
 
 const availableNotes = [100, 50, 20, 10]
 
-export function calculateNotes(cashAmount: number) {
+export function calculateNotes(cashAmount: number): Object {
   if (!cashAmount) {
     return []
   }
