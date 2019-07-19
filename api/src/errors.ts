@@ -3,7 +3,7 @@ export class NoteUnavailableException extends Error {
     super()
 
     Object.setPrototypeOf(this, new.target.prototype) // restore prototype chain
-    this.name = NoteUnavailableException.name // stack traces display correctly now
+    this.name = NoteUnavailableException.name
     this.message = message
   }
 }

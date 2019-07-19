@@ -8,7 +8,14 @@ export default class ApiService {
     console.log('ApiService.withdrawCash', amount)
 
     const url = `http://localhost:${apiPort}/withdraw/${amount}`
-    const result: ApiResult = await fetch(url).then(res => res.json())
+    const options = {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    }
+    const result: ApiResult = await fetch(url, options).then(res => res.json())
     return result
   }
 }
