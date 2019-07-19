@@ -44,4 +44,24 @@ describe('calculateNotes', () => {
     expect(() => calculateNotes(-181)).toThrowError(InvalidArgumentException)
     done()
   })
+
+  it('should return correct result for 0', done => {
+    expect(calculateNotes(0)).toEqual({})
+    done()
+  })
+
+  it('should return empty object for null', done => {
+    expect(calculateNotes(null)).toEqual({})
+    done()
+  })
+
+  it('should return something for 999999980', done => {
+    expect(calculateNotes(999999980)).toEqual({
+      '10': 1,
+      '100': 9999999,
+      '20': 1,
+      '50': 1,
+    })
+    done()
+  })
 })

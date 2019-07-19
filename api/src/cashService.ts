@@ -4,7 +4,7 @@ const availableNotes = [100, 50, 20, 10]
 
 export function calculateNotes(cashAmount: number): Object {
   if (!cashAmount) {
-    return []
+    return {}
   }
   throwIfInvalidArgument(cashAmount)
 
