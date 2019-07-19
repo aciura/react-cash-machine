@@ -26,7 +26,6 @@ export const CashNote: React.FC<CashNoteProps> = ({ note, amount }) => {
 
   return (
     <div>
-      {/* ${note} x {amount} */}
       {noteRepeater.map((_, idx) => (
         <img
           ref={imgRef}

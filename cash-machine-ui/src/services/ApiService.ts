@@ -1,5 +1,6 @@
 import { ApiResult } from '../../../common/ApiResults'
 
+// TODO: Move url & port to a config file
 const apiPort = 3001
 
 export default class ApiService {

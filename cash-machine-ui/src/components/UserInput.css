@@ -1,0 +1,14 @@
+input#cashAmount {
+  height: 2em;
+  margin: 0 1em;
+  border-radius: 5px;
+}
+
+button#withdraw {
+  display: inline-block;
+  border-radius: 5px;
+  background-color: #bf0413;
+  color: white;
+  border: none;
+  height: 2.5em;
+}
