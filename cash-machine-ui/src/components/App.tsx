@@ -16,11 +16,10 @@ const App: React.FunctionComponent = () => {
   async function withdrawCash(cashAmount: number) {
     console.log('withdrawCash', cashAmount)
     setNotes([])
-
     try {
       const result = await ApiService.withdrawCash(cashAmount)
-
       console.log('withdrawCash result', result)
+
       if ('data' in result) {
         setNotes(parseNotes(result.data))
         setError(null)
@@ -47,18 +46,24 @@ const App: React.FunctionComponent = () => {
   }
 
   return (
-    <div
-      className="App"
-      style={{ border: '1px solid grey', backgroundColor: 'green' }}
-    >
-      <header className="App-header">Cash machine</header>
-      <UserInput withdrawCash={withdrawCash} />
-      {error && <DisplayError name={error.name} message={error.message} />}
-      <div>
-        {notes.map(n => (
-          <CashNote key={n.note} note={n.note} amount={n.amount} />
-        ))}
+    <div className="App">
+      <header>Cash machine</header>
+      <div className="container">
+        <div className="userInput">
+          <UserInput withdrawCash={withdrawCash} />
+        </div>
+        {error && (
+          <div className="errorRow">
+            <DisplayError name={error.name} message={error.message} />
+          </div>
+        )}
+        <div className="notesRow">
+          {notes.map(n => (
+            <CashNote key={n.note} note={n.note} amount={n.amount} />
+          ))}
+        </div>
       </div>
+      <footer>© Adrian Ciura 2019</footer>
     </div>
   )
 }

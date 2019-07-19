@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useRef,
 } from 'react'
+import { whileStatement } from '@babel/types'
 
 const ENTER_KEY_CODE = 13
 
@@ -25,7 +26,7 @@ const UserInput: FunctionComponent<UserInputProps> = ({ withdrawCash }) => {
   }, [])
 
   return (
-    <div>
+    <div style={{ padding: '1em 1em' }}>
       <label htmlFor="cashAmount">Cash to withdraw</label>
 
       <input
@@ -33,7 +34,7 @@ const UserInput: FunctionComponent<UserInputProps> = ({ withdrawCash }) => {
         type="number"
         id="cashAmount"
         name="cashAmount"
-        style={{ margin: '5px' }}
+        style={{ height: '2em', margin: '0 1em', borderRadius: '5px' }}
         value={cashAmount}
         onChange={handleCashAmountChange}
         onKeyUp={e => {
@@ -42,7 +43,14 @@ const UserInput: FunctionComponent<UserInputProps> = ({ withdrawCash }) => {
       />
 
       <button
-        style={{ display: 'inline-block' }}
+        style={{
+          display: 'inline-block',
+          borderRadius: '5px',
+          backgroundColor: '#bf0413',
+          color: 'white',
+          border: 'none',
+          height: '2em',
+        }}
         onClick={_ => withdrawCash(cashAmount)}
       >
         Withdraw
