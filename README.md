@@ -30,7 +30,9 @@ Api project structure:
 
 ### To build & run use:
 
-> `cd ./api/` > `npm run start:dev`
+> `cd ./api/`
+
+> `npm run start:dev`
 
 This will start the project in development mode.
 CrossEnv library is used to handle both Windows & Linux OS.
@@ -70,11 +72,15 @@ Before running UI please start-up the **_api server_** on localhost port 3001 (d
 
 To build and run in development mode use:
 
-> `cd cash-machine-ui` > `npm run start`
+> `cd cash-machine-ui`
+
+> `npm run start`
 
 To build in production mode run:
 
-> `cd cash-machine-ui` > `npm run build`
+> `cd cash-machine-ui`
+
+> `npm run build`
 
 Serve `build` folder with some static web-server, i.e.:
 `serve -s build`
