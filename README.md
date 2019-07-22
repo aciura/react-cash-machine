@@ -20,17 +20,17 @@ Api project is using:
 Api project structure:
 
 - api
-  +-- src - contains main files
-  +-- tests - contains tests
-  +-- build - output files built by webpack
-  +-- node_modules - dependecies
+
+  - src - contains main files
+  - tests - contains tests
+  - build - output files built by webpack
+  - node_modules - dependecies
 
   Spliting requested cash amount into bank notes is done in: api/src/cashService.ts
 
 ### To build & run use:
 
-`cd ./api/`
-`npm run start:dev`
+> `cd ./api/` > `npm run start:dev`
 
 This will start the project in development mode.
 CrossEnv library is used to handle both Windows & Linux OS.
@@ -58,8 +58,8 @@ Project structure:
 
 - cash-machine-ui
   - src - main directory of the app
-    +-- components - React components
-    +-- services - access to API
+    - components - React components
+    - services - access to API
   - public - static resources for the web page
   - build - contains output files
   - tests
@@ -69,12 +69,13 @@ Project structure:
 Before running UI please start-up the **_api server_** on localhost port 3001 (default).
 
 To build and run in development mode use:
-`cd cash-machine-ui`
-`npm run start`
+
+> `cd cash-machine-ui` > `npm run start`
 
 To build in production mode run:
-`cd cash-machine-ui`
-`npm run build`
+
+> `cd cash-machine-ui` > `npm run build`
+
 Serve `build` folder with some static web-server, i.e.:
 `serve -s build`
 
