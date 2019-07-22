@@ -90,3 +90,5 @@ Serve `build` folder with some static web-server, i.e.:
 The plan was to use Jest & Enzyme to test the UI project.
 Unfortunately I've run out of time to implement those.
 This will be done in version 2.0.
+
+![React Cash Machine UI Screenshot](https://github.com/aciura/react-cash-machine/blob/master/Screenshot.jpg)
